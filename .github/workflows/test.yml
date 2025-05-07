@@ -1,12 +1,16 @@
-name: Github Action Test
+name: 테스트 워크플로
 
-on: [push] # 코드가 push 될 때마다
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  print-message:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      name: Print the message
-      run: echo "수집 자동화"
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v3
 
+      - name: Hello World 출력
+        run: echo "안녕하세요! 워크플로 정상 작동 중입니다 :)"
